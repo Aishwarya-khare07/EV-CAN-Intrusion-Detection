@@ -148,7 +148,7 @@ EV-CAN-Intrusion-Detection
 
 Aishwarya Khare
 
-Electrical and Electronics Engineering
+Electronics and communication Engineering
 
 Project: EV CAN Intrusion Detection System
 
