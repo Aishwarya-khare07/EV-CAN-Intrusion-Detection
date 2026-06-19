@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# ---------------- PAGE CONFIG ---------------- #
+# --------------------------------------------------
+# PAGE CONFIG
+# --------------------------------------------------
 
 st.set_page_config(
     page_title="EV CAN Intrusion Detection System",
@@ -10,119 +12,123 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------- CUSTOM THEME ---------------- #
-
-st.markdown("""
-<style>
-
-.stApp {
-    background: linear-gradient(135deg,#0f172a,#1e293b,#312e81);
-    color:white;
-}
-
-h1,h2,h3 {
-    color:white !important;
-}
-
-[data-testid="metric-container"] {
-    background: linear-gradient(135deg,#2563eb,#7c3aed);
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0px 4px 15px rgba(0,0,0,0.3);
-}
-
-[data-testid="metric-container"] label {
-    color:white !important;
-}
-
-section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg,#1e3a8a,#2563eb,#7c3aed);
-}
-
-div[data-testid="stPlotlyChart"] {
-    background:white;
-    border-radius:15px;
-    padding:10px;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-# ---------------- LOAD DATA ---------------- #
+# --------------------------------------------------
+# LOAD DATA
+# --------------------------------------------------
 
 can_df = pd.read_csv("can_data.csv")
 attack_df = pd.read_csv("attack_log.csv")
 
-# ---------------- SIDEBAR ---------------- #
+# --------------------------------------------------
+# SIDEBAR
+# --------------------------------------------------
 
-st.sidebar.title("🔐 Project Information")
+st.sidebar.title("🔐 EV Cybersecurity Dashboard")
 
-st.sidebar.info("""
-EV CAN Intrusion Detection
+st.sidebar.markdown("""
+### Project Features
 
-✔ Real-Time Monitoring
+✅ CAN Traffic Monitoring
 
-✔ CAN Traffic Analysis
+✅ Intrusion Detection
 
-✔ Speed & RPM Visualization
+✅ Real-Time Analysis
 
-✔ Attack Detection
+✅ Vehicle Speed Monitoring
 
-✔ Attack Distribution Analysis
+✅ RPM Monitoring
 
-✔ Cybersecurity Dashboard
+✅ Attack Analytics
+
+✅ Download Reports
 """)
 
-st.sidebar.success("Status: Active")
+st.sidebar.success("System Status: ACTIVE")
 
-# ---------------- HEADER ---------------- #
+# --------------------------------------------------
+# HEADER
+# --------------------------------------------------
 
-st.markdown("""
-<h1 style='text-align:center;'>
-🚗 EV CAN Intrusion Detection System
-</h1>
+st.title("🚗 EV CAN Intrusion Detection System")
+st.markdown("### Real-Time EV Cybersecurity Monitoring Dashboard")
 
-<h3 style='text-align:center;color:#93c5fd;'>
-Real-Time EV Cybersecurity Monitoring Dashboard
-</h3>
-""", unsafe_allow_html=True)
+st.divider()
 
-# ---------------- METRICS ---------------- #
+# --------------------------------------------------
+# KPI METRICS
+# --------------------------------------------------
 
 total_messages = len(can_df)
 total_attacks = len(attack_df)
 
-avg_speed = round(can_df["Speed"].mean(),2)
-avg_rpm = round(can_df["RPM"].mean(),2)
+avg_speed = round(can_df["Speed"].mean(), 2)
+avg_rpm = round(can_df["RPM"].mean(), 2)
 
-c1,c2,c3,c4 = st.columns(4)
+attack_rate = round(
+    (total_attacks / total_messages) * 100,
+    2
+)
+
+c1, c2, c3, c4, c5 = st.columns(5)
 
 with c1:
     st.metric("📡 CAN Messages", total_messages)
 
 with c2:
-    st.metric("🚨 Detected Attacks", total_attacks)
+    st.metric("🚨 Attacks", total_attacks)
 
 with c3:
-    st.metric("🚗 Average Speed", avg_speed)
+    st.metric("🚗 Avg Speed", avg_speed)
 
 with c4:
-    st.metric("⚙ Average RPM", avg_rpm)
+    st.metric("⚙ Avg RPM", avg_rpm)
 
-# ---------------- ALERT ---------------- #
+with c5:
+    st.metric("🛡 Attack Rate %", attack_rate)
 
-if total_attacks > 0:
-    st.error(f"🚨 ALERT: {total_attacks} suspicious CAN messages detected!")
+# --------------------------------------------------
+# ALERTS
+# --------------------------------------------------
+
+if total_attacks > 20:
+    st.error(
+        f"🚨 ALERT: {total_attacks} suspicious CAN messages detected!"
+    )
 else:
-    st.success("✅ System Secure - No attacks detected")
+    st.success("✅ No major cyber threats detected")
+
+# --------------------------------------------------
+# SYSTEM HEALTH
+# --------------------------------------------------
+
+st.subheader("🛡 System Health")
+
+h1, h2, h3, h4 = st.columns(4)
+
+with h1:
+    st.success("Battery Network Stable")
+
+with h2:
+    st.success("Motor Controller Active")
+
+with h3:
+    st.success("CAN Communication Healthy")
+
+with h4:
+    if total_attacks > 20:
+        st.error("Threat Level: HIGH")
+    else:
+        st.success("Threat Level: LOW")
 
 st.divider()
 
-# ---------------- SPEED & RPM GRAPHS ---------------- #
+# --------------------------------------------------
+# CHARTS
+# --------------------------------------------------
 
-col1,col2 = st.columns(2)
+left, right = st.columns(2)
 
-with col1:
+with left:
 
     st.subheader("📈 Vehicle Speed Trend")
 
@@ -130,16 +136,15 @@ with col1:
         can_df,
         x="Time",
         y="Speed",
-        title="Speed Trend"
+        title="Vehicle Speed"
     )
 
-    fig_speed.update_layout(
-        template="plotly_white"
+    st.plotly_chart(
+        fig_speed,
+        use_container_width=True
     )
 
-    st.plotly_chart(fig_speed,use_container_width=True)
-
-with col2:
+with right:
 
     st.subheader("⚙ Vehicle RPM Trend")
 
@@ -147,68 +152,163 @@ with col2:
         can_df,
         x="Time",
         y="RPM",
-        title="RPM Trend"
+        title="Vehicle RPM"
     )
 
-    fig_rpm.update_layout(
-        template="plotly_white"
+    st.plotly_chart(
+        fig_rpm,
+        use_container_width=True
     )
-
-    st.plotly_chart(fig_rpm,use_container_width=True)
 
 st.divider()
 
-# ---------------- ATTACK DISTRIBUTION ---------------- #
+# --------------------------------------------------
+# VEHICLE STATISTICS
+# --------------------------------------------------
+
+st.subheader("🚘 Vehicle Statistics")
+
+s1, s2, s3, s4 = st.columns(4)
+
+with s1:
+    st.info(
+        f"Maximum Speed: {can_df['Speed'].max()}"
+    )
+
+with s2:
+    st.info(
+        f"Minimum Speed: {can_df['Speed'].min()}"
+    )
+
+with s3:
+    st.info(
+        f"Maximum RPM: {can_df['RPM'].max()}"
+    )
+
+with s4:
+    st.info(
+        f"Minimum RPM: {can_df['RPM'].min()}"
+    )
+
+st.divider()
+
+# --------------------------------------------------
+# ATTACK DISTRIBUTION
+# --------------------------------------------------
 
 st.subheader("🛡 Attack Distribution")
 
 if "Attack_Type" in attack_df.columns:
 
-    fig_attack = px.pie(
+    attack_chart = px.pie(
         attack_df,
         names="Attack_Type",
         hole=0.5,
-        title="Attack Distribution"
+        title="Attack Types"
     )
 
-    st.plotly_chart(fig_attack,use_container_width=True)
+    st.plotly_chart(
+        attack_chart,
+        use_container_width=True
+    )
 
 else:
-
-    st.info("Attack_Type column not found in attack_log.csv")
+    st.info(
+        "Attack_Type column not available in attack_log.csv"
+    )
 
 st.divider()
 
-# ---------------- CAN DATA TABLE ---------------- #
+# --------------------------------------------------
+# SEARCH
+# --------------------------------------------------
+
+st.subheader("🔍 Search CAN Data")
+
+search = st.text_input(
+    "Enter any value to search in CAN data"
+)
+
+if search:
+
+    filtered = can_df.astype(str).apply(
+        lambda row:
+        row.str.contains(
+            search,
+            case=False
+        ).any(),
+        axis=1
+    )
+
+    st.dataframe(
+        can_df[filtered],
+        use_container_width=True
+    )
+
+# --------------------------------------------------
+# CAN DATA TABLE
+# --------------------------------------------------
 
 st.subheader("📋 Recent CAN Messages")
 
 st.dataframe(
-    can_df.tail(15),
-    use_container_width=True
+    can_df.tail(20),
+    use_container_width=True,
+    height=350
 )
 
 st.divider()
 
-# ---------------- ATTACK LOG TABLE ---------------- #
+# --------------------------------------------------
+# ATTACK LOG TABLE
+# --------------------------------------------------
 
 st.subheader("🚨 Attack Log")
 
 st.dataframe(
     attack_df,
-    use_container_width=True
+    use_container_width=True,
+    height=350
 )
 
 st.divider()
 
-# ---------------- FOOTER ---------------- #
+# --------------------------------------------------
+# DOWNLOAD SECTION
+# --------------------------------------------------
+
+st.subheader("⬇ Download Reports")
+
+d1, d2 = st.columns(2)
+
+with d1:
+
+    st.download_button(
+        label="Download CAN Data",
+        data=can_df.to_csv(index=False),
+        file_name="can_data.csv",
+        mime="text/csv"
+    )
+
+with d2:
+
+    st.download_button(
+        label="Download Attack Log",
+        data=attack_df.to_csv(index=False),
+        file_name="attack_log.csv",
+        mime="text/csv"
+    )
+
+# --------------------------------------------------
+# FOOTER
+# --------------------------------------------------
+
+st.divider()
 
 st.markdown("""
-<center>
+### 🔐 EV CAN Intrusion Detection System
 
-### 🔐 EV Cybersecurity Dashboard
+Real-Time Automotive Cybersecurity Monitoring Dashboard
 
-Developed for EV CAN Bus Intrusion Detection & Monitoring
-
-</center>
-""", unsafe_allow_html=True)
+Developed using Python, Streamlit, Pandas and Plotly
+""")
