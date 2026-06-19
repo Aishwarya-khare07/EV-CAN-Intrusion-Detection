@@ -1,0 +1,121 @@
+Time,Speed,RPM,Battery,CAN_ID,Attack_Type,Threat_Level,Alert
+0,67.48,2472.35,86.3,0x102,Normal,Low,No
+1,72.62,2316.63,84.75,0x102,Normal,Low,No
+2,66.4,2702.1,83.84,0x100,Normal,Low,No
+3,62.37,2792.48,88.08,0x100,Normal,Low,No
+4,56.38,2387.54,82.97,0x103,Normal,Low,No
+5,66.57,2544.42,83.46,0x103,Normal,Low,No
+6,77.8,2578.85,85.24,0x100,Normal,Low,No
+7,62.42,2441.32,84.94,0x100,Normal,Low,No
+8,62.0,2441.66,83.8,0x102,Normal,Low,No
+9,74.26,2726.05,85.75,0x102,Normal,Low,No
+10,63.85,2577.87,82.47,0x101,Normal,Low,No
+11,70.46,2564.6,82.21,0x100,Normal,Low,No
+12,68.69,2534.27,84.77,0x103,Normal,Low,No
+13,63.49,2552.7,88.28,0x103,Normal,Low,No
+14,58.27,2323.88,82.74,0x102,Normal,Low,No
+15,65.67,2124.86,82.27,0x103,Normal,Low,No
+16,70.15,2686.26,83.32,0x102,Normal,Low,No
+17,63.45,2466.36,87.33,0x100,Normal,Low,No
+18,64.11,2417.92,87.36,0x103,Normal,Low,No
+19,60.51,2591.58,81.63,0x102,Normal,Low,No
+20,66.81,2370.98,85.72,0x102,Normal,Low,No
+21,72.69,2377.02,85.67,0x103,Normal,Low,No
+22,57.91,2708.5,86.81,0x102,Normal,Low,No
+23,65.1,2674.54,89.57,0x100,Normal,Low,No
+24,60.96,2399.65,86.83,0x103,Normal,Low,No
+25,66.64,2417.05,82.2,0x101,Normal,Low,No
+26,71.86,2535.11,84.38,0x100,Normal,Low,No
+27,68.37,2669.98,82.38,0x100,Normal,Low,No
+28,66.48,2552.21,85.01,0x100,Normal,Low,No
+29,63.83,2889.02,84.69,0x101,Normal,Low,No
+30,67.26,2466.79,85.43,0x100,Normal,Low,No
+31,54.89,2367.45,84.71,0x101,Normal,Low,No
+32,55.41,2494.7,85.12,0x101,Normal,Low,No
+33,77.32,2483.98,84.52,0x100,Normal,Low,No
+34,62.13,2415.7,85.68,0x103,Normal,Low,No
+35,64.96,2347.47,85.34,0x103,Normal,Low,No
+36,68.96,2318.12,87.81,0x101,Normal,Low,No
+37,57.99,2743.61,84.22,0x103,Normal,Low,No
+38,62.53,2684.63,88.41,0x102,Normal,Low,No
+39,69.37,2677.5,86.21,0x103,Normal,Low,No
+40,215.5,2594.72,83.16,0x101,Speed Spoofing,Critical,Yes
+41,206.77,2685.29,83.32,0x102,Speed Spoofing,Critical,Yes
+42,205.26,2611.22,87.09,0x100,Speed Spoofing,Critical,Yes
+43,201.52,2523.8,87.0,0x102,Speed Spoofing,Critical,Yes
+44,202.97,2235.91,86.04,0x103,Speed Spoofing,Critical,Yes
+45,211.03,2454.66,86.31,0x101,Speed Spoofing,Critical,Yes
+46,213.25,2256.63,87.1,0x100,Speed Spoofing,Critical,Yes
+47,192.65,2494.94,87.69,0x102,Speed Spoofing,Critical,Yes
+48,192.46,2879.36,84.51,0x102,Speed Spoofing,Critical,Yes
+49,204.13,2200.34,84.98,0x103,Speed Spoofing,Critical,Yes
+50,71.05,2607.59,90.47,0x103,Normal,Low,No
+51,65.47,2425.38,86.01,0x103,Normal,Low,No
+52,59.65,2596.49,84.55,0x100,Normal,Low,No
+53,68.57,2474.48,85.68,0x101,Normal,Low,No
+54,62.74,2655.41,87.09,0x103,Normal,Low,No
+55,63.29,2036.39,84.46,0x101,Normal,Low,No
+56,65.87,2577.06,83.23,0x103,Normal,Low,No
+57,65.77,2270.46,87.78,0x102,Normal,Low,No
+58,70.29,2510.27,86.74,0x102,Normal,Low,No
+59,70.33,2589.95,88.56,0x101,Normal,Low,No
+60,67.58,2602.76,86.03,0x100,Normal,Low,No
+61,84.26,2388.81,84.74,0x102,Normal,Low,No
+62,59.24,2199.85,85.33,0x101,Normal,Low,No
+63,60.72,2317.32,84.09,0x101,Normal,Low,No
+64,68.43,2177.46,84.06,0x103,Normal,Low,No
+65,70.44,2693.28,83.98,0x103,Normal,Low,No
+66,67.75,2245.83,89.78,0x102,Normal,Low,No
+67,74.22,2478.56,84.03,0x102,Normal,Low,No
+68,61.04,2477.05,86.01,0x100,Normal,Low,No
+69,69.33,2190.23,84.31,0x101,Normal,Low,No
+70,69.73,9495.41,85.75,0x101,RPM Spoofing,Critical,Yes
+71,59.08,8755.42,84.32,0x103,RPM Spoofing,Critical,Yes
+72,67.22,8982.14,83.15,0x103,RPM Spoofing,Critical,Yes
+73,62.25,8850.48,89.23,0x101,RPM Spoofing,Critical,Yes
+74,72.72,8860.3,84.74,0x101,RPM Spoofing,Critical,Yes
+75,65.01,9124.16,88.87,0x103,RPM Spoofing,Critical,Yes
+76,66.0,8884.41,85.14,0x102,RPM Spoofing,Critical,Yes
+77,68.04,9061.28,82.93,0x100,RPM Spoofing,Critical,Yes
+78,68.43,8967.45,85.88,0x101,RPM Spoofing,Critical,Yes
+79,61.66,8619.79,83.91,0x100,RPM Spoofing,Critical,Yes
+80,66.4,2375.46,84.58,0x101,Normal,Low,No
+81,62.53,2275.01,87.56,0x102,Normal,Low,No
+82,61.89,2428.9,86.9,0x100,Normal,Low,No
+83,72.26,2481.98,83.99,0x100,Normal,Low,No
+84,60.86,2387.96,86.49,0x100,Normal,Low,No
+85,68.05,2376.95,85.77,0x100,Normal,Low,No
+86,61.65,2732.39,88.11,0x100,Normal,Low,No
+87,62.8,2374.63,82.32,0x100,Normal,Low,No
+88,71.53,2504.2,86.36,0x100,Normal,Low,No
+89,63.45,2417.74,86.97,0x103,Normal,Low,No
+90,74.56,2713.05,81.42,0x100,Normal,Low,No
+91,62.77,2211.87,85.54,0x100,Normal,Low,No
+92,68.12,2625.67,84.98,0x102,Normal,Low,No
+93,60.51,2564.9,88.35,0x102,Normal,Low,No
+94,68.07,2771.58,84.13,0x101,Normal,Low,No
+95,60.0,2500.0,85.16,0x103,Replay Attack,Medium,Yes
+96,60.0,2500.0,83.56,0x100,Replay Attack,Medium,Yes
+97,60.0,2500.0,83.24,0x101,Replay Attack,Medium,Yes
+98,60.0,2500.0,83.64,0x103,Replay Attack,Medium,Yes
+99,60.0,2500.0,86.07,0x102,Replay Attack,Medium,Yes
+100,60.0,2500.0,84.78,0x100,Replay Attack,Medium,Yes
+101,60.0,2500.0,83.31,0x100,Replay Attack,Medium,Yes
+102,60.0,2500.0,85.95,0x101,Replay Attack,Medium,Yes
+103,60.0,2500.0,83.89,0x102,Replay Attack,Medium,Yes
+104,60.0,2500.0,86.74,0x100,Replay Attack,Medium,Yes
+105,65.92,2471.34,83.8,0x103,Normal,Low,No
+106,57.74,2656.8,84.68,0x101,Normal,Low,No
+107,58.22,2348.62,83.25,0x100,Normal,Low,No
+108,66.71,2875.23,86.9,0x103,Normal,Low,No
+109,62.12,2370.74,84.19,0x102,Normal,Low,No
+110,68.71,2795.33,86.4,0x101,Normal,Low,No
+111,64.34,2253.65,85.38,0x103,Normal,Low,No
+112,70.9,2406.16,81.57,0x101,Normal,Low,No
+113,71.77,2551.73,87.47,0x100,Normal,Low,No
+114,52.74,2319.74,84.78,0x101,Normal,Low,No
+115,64.72,2568.49,88.82,0x100,Normal,Low,No
+116,65.03,2509.4,84.1,0x101,Normal,Low,No
+117,68.11,2368.69,83.44,0x100,Normal,Low,No
+118,58.16,2607.1,87.12,0x103,Normal,Low,No
+119,72.71,1804.37,84.46,0x102,Normal,Low,No
