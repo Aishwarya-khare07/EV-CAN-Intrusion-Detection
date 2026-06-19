@@ -100,8 +100,7 @@ The objective of this project is to detect abnormal CAN bus activity in Electric
 
 Paste your Streamlit dashboard link below:
 
-https://YOUR-STREAMLIT-LINK.streamlit.app
-
+https://ev-can-intrusion-detection-mlfesgciuvxth8z8fntzkt.streamlit.app/
 ---
 
 ## Repository Structure
